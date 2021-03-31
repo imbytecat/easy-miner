@@ -9,19 +9,22 @@ jobs:
   build:
     runs-on: ubuntu-latest
     steps:
-      - name: Login to docker hub
+      - uses: actions/checkout@v2
+      - name: Checkout repository
+
+      - name: Login to Docker Hub
         uses: actions-hub/docker/login@master
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
-      - name: docker build
+      - name: Build Docker image
         run: docker build -t ${DOCKER_USERNAME}/${DOCKER_REPOSITORY} .
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
 
-      - name: Push to docker hub
+      - name: Push to Docker Hub
         uses: actions-hub/docker@master
         with:
           args: push ${DOCKER_USERNAME}/${DOCKER_REPOSITORY}
