@@ -1,0 +1,33 @@
+name: Build Docker image
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+      - name: Define variables
+        run: |
+          echo ::set-env name=REPOSITORY::$(echo "easy-minner")
+
+      - name: Login to docker hub
+        uses: actions-hub/docker/login@master
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+          DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
+
+      - name: docker build
+        run: docker build -t ${DOCKER_USERNAME}/${REPOSITORY} .
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
+
+      - name: Push to docker hub
+        uses: actions-hub/docker@master
+        with:
+          args: push ${DOCKER_USERNAME}/${REPOSITORY}
+        env:
+          DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}

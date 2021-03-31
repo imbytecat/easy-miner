@@ -1,8 +1,6 @@
 name: Build XMRig
 
 on:
-  push:
-    branches: [main]
   schedule:
     - cron: "0 3 * * *"
 
