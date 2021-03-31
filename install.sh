@@ -111,5 +111,5 @@ EOF
     systemctl start miner
     systemctl enable miner
 else
-    /etc/miner/miner
+    exec /etc/miner/miner
 fi

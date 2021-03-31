@@ -1,9 +1,0 @@
-image: alpine:3.13.3
-
-pipelines:
-  default:
-    - parallel:
-      - step:
-          name: 'Build'
-          script:
-            - sh install.sh
