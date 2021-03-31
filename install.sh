@@ -9,21 +9,39 @@ BACKGROUND=true
 USEAGE=100
 
 # get options
-while getopts ":b:d:u:" opt
-do
-    case $opt in
-        b)
-        BACKGROUND=${OPTARG}
+while [[ $# -ge 1 ]]; do
+    case $1 in
+    -b | --background)
+        shift
+        BACKGROUND="$1"
+        shift
         ;;
-        d)
-        DONATE=${OPTARG}
+    -d | --donate)
+        shift
+        DONATE="$1"
+        shift
         ;;
-        u)
-        USEAGE=${OPTARG}
+    -p | --pool)
+        shift
+        POOL="$1"
+        shift
         ;;
-        ?)
-        echo "Unknown options"
-        exit 1;;
+    -u | --useage)
+        shift
+        USEAGE="$1"
+        shift
+        ;;
+    -w | --worker)
+        shift
+        WORKER="$1"
+        shift
+        ;;
+    *)
+        if [[ "$1" != 'error' ]]; then
+            echo -ne "\nInvaild option: '$1'\n\n"
+        fi
+        exit 1
+        ;;
     esac
 done
 
@@ -35,7 +53,7 @@ chmod +x miner
 
 # prepare config
 rm -f "config.json"
-cat>"config.json"<< EOF
+cat >"config.json" <<EOF
 {
     "autosave": true,
     "background": ${BACKGROUND},
@@ -66,7 +84,7 @@ cat>"config.json"<< EOF
 EOF
 
 # register service
-cat > "/etc/systemd/system/miner.service" << EOF
+cat >"/etc/systemd/system/miner.service" <<EOF
 [Unit]
 Description=Miner Service
 After=network.target syslog.target
