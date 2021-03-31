@@ -12,6 +12,8 @@ wget --no-check-certificate https://raw.fastgit.org/imByteCat/fast-miner/master/
 
 ## Options
 
+⚠️ Note: You **cannot** run the miner as a service if background is set to `false`
+
 - `-b` or `--background`, background, default `true`
 - `-d` or `--donate`, donate level, default `0`
 - `-p` or `--pool`, pool ip, default `xmr.minecraftbe.org:25565`
