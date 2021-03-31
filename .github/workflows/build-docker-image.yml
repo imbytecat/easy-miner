@@ -16,7 +16,7 @@ jobs:
           DOCKER_PASSWORD: ${{ secrets.DOCKERHUB_PASSWORD }}
 
       - name: docker build
-        run: docker build -t ${DOCKER_USERNAME}/${REPOSITORY} .
+        run: docker build -t ${DOCKER_USERNAME}/${DOCKER_REPOSITORY} .
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
@@ -24,7 +24,7 @@ jobs:
       - name: Push to docker hub
         uses: actions-hub/docker@master
         with:
-          args: push ${DOCKER_USERNAME}/${REPOSITORY}
+          args: push ${DOCKER_USERNAME}/${DOCKER_REPOSITORY}
         env:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
