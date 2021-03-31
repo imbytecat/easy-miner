@@ -21,3 +21,9 @@ wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/in
 - `-u` or `--useage`, max cpu useage, default `100`
 - `-w` or `--worker`, worker name, default `$(date "+%Y.%m.%d_%H.%M.%S")`
 
+## Docker
+
+```shell
+docker run -e OPTS="-s false" easy-miner
+```
+
