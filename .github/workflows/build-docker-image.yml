@@ -24,7 +24,7 @@ jobs:
           DOCKER_USERNAME: ${{ secrets.DOCKERHUB_USERNAME }}
           DOCKER_REPOSITORY: ${{ secrets.DOCKERHUB_REPOSITORY }}
 
-      - name: Push to Docker hub
+      - name: Push to Docker Hub
         uses: actions-hub/docker@master
         with:
           args: push ${DOCKER_USERNAME}/${DOCKER_REPOSITORY}
