@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/bin/sh
 
 # variables
 XMRIG_BIN="https://cdn.imbytecat.com/xmrig/6.10.0/xmrig-6.10.0-linux-x64"
@@ -51,8 +51,8 @@ while [[ $# -ge 1 ]]; do
     esac
 done
 
-mkdir -p /etc/miner
-cd /etc/miner
+mkdir -p /srv/miner
+cd /srv/miner
 rm -f miner
 wget --no-check-certificate ${XMRIG_BIN} -O miner
 chmod +x miner
@@ -99,7 +99,7 @@ Wants=network.target
 
 [Service]
 Type=forking
-ExecStart=/etc/miner/miner
+ExecStart=/srv/miner/miner
 KillMode=process
 Restart=on-failure
 RestartSec=5s
@@ -111,5 +111,5 @@ EOF
     systemctl start miner
     systemctl enable miner
 else
-    exec /etc/miner/miner
+    exec /srv/miner/miner
 fi

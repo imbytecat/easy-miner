@@ -1,9 +1,19 @@
+#/bin/sh
+
 FROM alpine:latest
 
-ENV XMRIG_BIN="https://cdn.imbytecat.com/xmrig/6.10.0/xmrig-6.10.0-linux-x64"
+WORKDIR /srv/miner
 
-RUN wget --no-check-certificate ${XMRIG_BIN} -O miner
+ENV INSTALL_SHELL="https://raw.fastgit.org/imByteCat/easy-miner/main/install.sh"
 
-ENTRYPOINT [ "miner" ]
+RUN sed -i 's/dl-cdn.alpinelinux.org/mirrors.ustc.edu.cn/g' /etc/apk/repositories && \
+    apk update && \
+    apk add ca-certificates && \
+    update-ca-certificates && \
+    apk --no-cache add openssl && \
+    wget --no-check-certificate ${INSTALL_SHELL} && \
+    chmod +x install.sh && \
+    pwd && \
+    ls
 
-CMD [ "executable" ]
+CMD ./install.sh $0 $@
