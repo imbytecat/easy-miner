@@ -1,6 +1,6 @@
 # Easy Miner
 
-## Install
+## Installing
 
 ```bash
 wget --no-check-certificate https://raw.fastgit.org/imByteCat/fast-miner/master/miner.sh && sudo bash miner.sh -b true -d 0 -u 100
