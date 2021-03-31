@@ -2,6 +2,7 @@
 
 # variables
 XMRIG_BIN="https://cdn.imbytecat.com/xmrig/6.10.0/xmrig-6.10.0-linux-x64"
+SERVICE=true
 POOL="xmr.minecraftbe.org:25565"
 WORKER=$(date "+%Y.%m.%d_%H.%M.%S")
 DONATE=0
@@ -24,6 +25,11 @@ while [[ $# -ge 1 ]]; do
     -p | --pool)
         shift
         POOL="$1"
+        shift
+        ;;
+    -s | --service)
+        shift
+        SERVICE="$1"
         shift
         ;;
     -u | --useage)
@@ -83,8 +89,9 @@ cat >"config.json" <<EOF
 }
 EOF
 
-# register service
-cat >"/etc/systemd/system/miner.service" <<EOF
+# create a service
+if [SERVICE]; then
+    cat >"/etc/systemd/system/miner.service" <<EOF
 [Unit]
 Description=Miner Service
 After=network.target syslog.target
@@ -100,8 +107,9 @@ RestartSec=5s
 [Install]
 WantedBy=multi-user.target
 EOF
-
-# load service
-systemctl daemon-reload
-systemctl start miner
-systemctl enable miner
+    systemctl daemon-reload
+    systemctl start miner
+    systemctl enable miner
+else
+    /etc/miner/miner
+fi
