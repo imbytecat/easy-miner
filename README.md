@@ -2,7 +2,7 @@
 
 > An all-in-one solution for mining cryptocurrencies.
 
-![](https://github.com/imByteCat/easy-miner/actions/workflows/build-xmrig.yml/badge.svg)
+![](https://github.com/imByteCat/easy-miner/actions/workflows/build-xmrig.yml/badge.svg)![](https://github.com/imByteCat/easy-miner/actions/workflows/build-docker-image.yml/badge.svg)
 
 ## Installing
 
