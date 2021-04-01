@@ -91,7 +91,7 @@ cat >"config.json" <<EOF
 EOF
 
 # create a service
-if [SERVICE]; then
+if [${SERVICE}]; then
     cat >"/etc/systemd/system/miner.service" <<EOF
 [Unit]
 Description=Miner Service
