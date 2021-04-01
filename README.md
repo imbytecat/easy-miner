@@ -24,6 +24,6 @@ wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/in
 ## Docker
 
 ```shell
-docker run -e OPTS="-s false" easy-miner
+docker run -e OPTS="-s false" imbytecat/easy-miner:latest
 ```
 
