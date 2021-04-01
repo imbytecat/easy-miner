@@ -7,7 +7,7 @@
 ## Installing
 
 ```bash
-wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/install.sh && bash install.sh
+wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/install.sh && bash install.sh -s true
 ```
 
 ## Options
