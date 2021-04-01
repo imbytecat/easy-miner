@@ -2,7 +2,7 @@
 
 # variables
 XMRIG_CORE="https://cdn.imbytecat.com/xmrig/6.10.0/xmrig-6.10.0-linux-amd64"
-SERVICE=true
+SERVICE=false
 POOL="xmr.minecraftbe.org:25565"
 WORKER=$(date "+%Y.%m.%d_%H.%M.%S")
 DONATE=0

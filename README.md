@@ -17,7 +17,7 @@ wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/in
 - `-b` or `--background`, background, default `true`
 - `-d` or `--donate`, donate level, default `0`
 - `-p` or `--pool`, pool ip, default `xmr.minecraftbe.org:25565`
-- `-s` or `--service`, create a service, default `true`
+- `-s` or `--service`, create a service, default `false`
 - `-u` or `--useage`, max cpu useage, default `100`
 - `-w` or `--worker`, worker name, default `$(date "+%Y.%m.%d_%H.%M.%S")`
 
