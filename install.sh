@@ -1,7 +1,7 @@
 #!/bin/sh
 
 # variables
-XMRIG_BIN="https://cdn.imbytecat.com/xmrig/6.10.0/xmrig-6.10.0-linux-amd64"
+XMRIG_CORE="https://cdn.imbytecat.com/xmrig/6.10.0/xmrig-6.10.0-linux-amd64"
 SERVICE=true
 POOL="xmr.minecraftbe.org:25565"
 WORKER=$(date "+%Y.%m.%d_%H.%M.%S")
@@ -54,7 +54,7 @@ done
 mkdir -p /srv/miner
 cd /srv/miner
 if [ ! -f "miner" ]; then
-    wget --no-check-certificate ${XMRIG_BIN} -O miner
+    wget --no-check-certificate ${XMRIG_CORE} -O miner
 fi
 chmod +x miner
 
