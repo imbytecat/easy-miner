@@ -7,7 +7,7 @@
 ## Installing
 
 ```bash
-wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/install.sh && bash install.sh -s true
+wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/install.sh && bash install.sh -b true -s true
 ```
 
 ## Options
@@ -24,6 +24,6 @@ wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/in
 ## Docker
 
 ```shell
-docker run -e OPTS="-s false" imbytecat/easy-miner:latest
+docker run -e OPTS="-b false -s false" imbytecat/easy-miner:latest
 ```
 

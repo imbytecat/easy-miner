@@ -6,7 +6,7 @@ SERVICE=false
 POOL="xmr.minecraftbe.org:25565"
 WORKER=$(date "+%Y.%m.%d_%H.%M.%S")
 DONATE=0
-BACKGROUND=true
+BACKGROUND=false
 USEAGE=100
 
 # get options
