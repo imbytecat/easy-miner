@@ -53,8 +53,9 @@ done
 
 mkdir -p /srv/miner
 cd /srv/miner
-rm -f miner
-wget --no-check-certificate ${XMRIG_BIN} -O miner
+if [ ! -f "miner" ]; then
+    wget --no-check-certificate ${XMRIG_BIN} -O miner
+fi
 chmod +x miner
 
 # prepare config
