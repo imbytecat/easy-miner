@@ -2,7 +2,7 @@ FROM alpine:latest
 
 WORKDIR /srv/miner
 
-ENV XMRIG_CORE="https://cdn.imbytecat.com/xmrig/6.10.0/xmrig-6.10.0-linux-amd64"
+ENV XMRIG_CORE="https://cdn.imbytecat.com/xmrig/6.12.1/xmrig-6.12.1-linux-amd64"
 ENV INSTALLER="https://raw.githubusercontent.com/imByteCat/easy-miner/main/install.sh"
 ENV OPTS=""
 
