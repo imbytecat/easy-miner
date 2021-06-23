@@ -7,6 +7,12 @@
 ## Installing
 
 ```bash
+wget --no-check-certificate https://raw.githubusercontent.com/imByteCat/easy-miner/main/install.sh && bash install.sh -b true -s true
+```
+
+via FastGit:
+
+```bash
 wget --no-check-certificate https://raw.fastgit.org/imByteCat/easy-miner/main/install.sh && bash install.sh -b true -s true
 ```
 
